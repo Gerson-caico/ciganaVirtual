@@ -2,64 +2,242 @@
 Universidade Federal do Rio Grande do Norte                 
 Centro de Ensino Superior do Seridó - CERES     
 Projeto Sistema de Gestão de Sortilégios                   
-Desenvolvido por @gerson_souza - verão/2021 
+Desenvolvido por @gersonsouza - verão/2021 
 */                 
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
+
 
 void telaInicial(void);
+void menuPrincipal(void);
+void menuSigno(void);
+void menuUsuario(void);
+void menuPrevisoes(void);
+void telaCadastroUsuario(void);
+
 
 int main(void) {
     telaInicial();
+    menuPrincipal();
+    menuSigno();
+    menuUsuario();
+    menuPrevisoes();
+    telaCadastroUsuario();
+    
     return 0;
 
 }
 
 
 void telaInicial(void) {
-    printf("%s"," \n");
-    printf("%s"," \n");
+     system("clear");	
+     printf(" \n");
+     printf(" \n");
 
-    printf("%s","***********************************************************************\n");
-    printf("%s","******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
-    printf("%s","***********************************************************************\n");
+     printf("***********************************************************************\n");
+     printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+     printf("***********************************************************************\n");
     
-    printf("%s"," \n");
-    printf("%s"," \n");
+     printf(" \n");
+     printf(" \n");
     
-    printf("%s","Apesar de não possuir fundamentação científica comprovada, a Astrologia continua a atrair a atenção de milhares de pessoas ao redor do mundo. Não é raro encontrar pessoas dos mais variados níveis culturais que incluem, como parte dos seus hábitos cotidianos, a consulta a um ou mais  mecanismos de adivinhação, mesmo que o façam apenas por diversão. Jornais, revistas e sites na internet continuam a publicar diariamente horóscopos e demais adivinhações baseadas na Astrologia. O presente projeto tem como objetivo desenvolver um programa de computador que simule a realização de previsões astrológicas, baseadas em dados reais do usuário, que serão efetuadas uma espécie de Cigana Virtual. \n");
+     printf("Apesar de não possuir fundamentação científica comprovada, a Astrologia continua a atrair a atenção de milhares de pessoas ao redor do mundo. Não é raro encontrar pessoas dos mais variados níveis culturais que incluem, como parte dos seus hábitos cotidianos, a consulta a um ou mais  mecanismos de adivinhação, mesmo que o façam apenas por diversão. Jornais, revistas e sites na internet continuam a publicar diariamente horóscopos e demais adivinhações baseadas na Astrologia. O presente projeto tem como objetivo desenvolver um programa de computador que simule a realização de previsões astrológicas, baseadas em dados reais do usuário, que serão efetuadas uma espécie de Cigana Virtual. \n");
     
-    printf("%s"," \n");
-    printf("%s"," \n");
+     printf(" \n");
+     printf(" \n");
 
-    printf("%s","Veja os 12 signos do Zodíaco:\n");
-    printf("%s"," \n");
-    printf("%s","- ÁRIES: de 21/Março a 19/Abril\n");
-    printf("%s"," \n");
-    printf("%s","- TOURO: de 20/Abril a 20/Maio\n");
-    printf("%s"," \n");
-    printf("%s","- GÊMEOS: de 21/Maio a 21/Junho\n");
-    printf("%s"," \n");
-    printf("%s","- CÂNCER: de 22/Junho a 22/Julho\n");
-    printf("%s"," \n");
-    printf("%s","- LEÃO: de 23/Julho a 22/Agosto\n");
-    printf("%s"," \n");
-    printf("%s","- VIRGEM: de 23/Agosto a 22/Setembro\n");
-    printf("%s"," \n");
-    printf("%s","- LIBRA: de 23/Setembro a 22/Outubro\n");
-    printf("%s"," \n");
-    printf("%s","- ESCORPIÃO: de 23/Outubro a 21/Novembro\n");
-    printf("%s"," \n");
-    printf("%s","- SAGITÁRIO: de 22/Novembro a 21/Dezembro\n");
-    printf("%s"," \n");
-    printf("%s","- CAPRICÓRNIO: de 22/Dezembro a 19/Janeiro\n");
-    printf("%s"," \n");
-    printf("%s","- AQUÁRIO: de 20/Janeiro a 18/Fevereiro\n");
-    printf("%s"," \n");
-    printf("%s","- PEIXES: de 19/Fevereiro a 20/Março\n");
-    printf("%s"," \n");
-
-    
-    
+     printf("Estes são os 12 signos do Zodíaco:\n");
+     printf(" \n");
+     printf("- ÁRIES: de 21/Março a 19/Abril\n");
+     printf(" \n");
+     printf("- TOURO: de 20/Abril a 20/Maio\n");
+     printf(" \n");
+     printf("- GÊMEOS: de 21/Maio a 21/Junho\n");
+     printf(" \n");
+     printf("- CÂNCER: de 22/Junho a 22/Julho\n");
+     printf(" \n");
+     printf("- LEÃO: de 23/Julho a 22/Agosto\n");
+     printf(" \n");
+     printf("- VIRGEM: de 23/Agosto a 22/Setembro\n");
+     printf(" \n");
+     printf("- LIBRA: de 23/Setembro a 22/Outubro\n");
+     printf(" \n");
+     printf("- ESCORPIÃO: de 23/Outubro a 21/Novembro\n");
+     printf(" \n");
+     printf("- SAGITÁRIO: de 22/Novembro a 21/Dezembro\n");
+     printf(" \n");
+     printf("- CAPRICÓRNIO: de 22/Dezembro a 19/Janeiro\n");
+     printf(" \n");
+     printf("- AQUÁRIO: de 20/Janeiro a 18/Fevereiro\n");
+     printf(" \n");
+     printf("- PEIXES: de 19/Fevereiro a 20/Março\n");
+     printf(" \n");
+     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+     getchar();
+   
 }
+
+void menuPrincipal(void) {
+        system("clear");
+
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ###############  MENU PRINCIPAL ###############          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           1. Signos                                             ***\n");
+	printf("***           2. Usuários                                           ***\n");
+	printf("***           3. Previsões                                          ***\n");
+	printf("***           4. Sobre a Cigana-Virtual                             ***\n");
+	printf("***           0. Sair do sistema                                    ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           Escolha a opção desejada:                             ***\n");
+	printf("***                                                                 ***\n");
+	printf("*****************************************************************************\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void menuSigno(void) {
+        
+        system("clear");
+
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ################  MENU SIGNOS  ################          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           1. Pesquisar os signos                                ***\n");
+	printf("***           2. Pesquisar os ascendentes                           ***\n");
+	printf("***           0. Voltar ao Menu Principal                           ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           Escolha a opção desejada:                             ***\n");
+	printf("***                                                                 ***\n");
+	printf("***********************************************************************\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	
+}
+
+void menuUsuario(void) {
+        
+        system("clear");
+
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ################  MENU USUÁRIO ################          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           1. Cadastrar novo usuário                             ***\n");
+	printf("***           2. Atualizar                                          ***\n");
+	printf("***           3. Excluir                                            ***\n");
+	printf("***           4. Pesquisar                                          ***\n");
+	printf("***           0. Voltar ao Menu Principal                           ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           Escolha a opção desejada:                             ***\n");
+	printf("***                                                                 ***\n");
+	printf("***********************************************************************\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	
+}
+
+void menuPrevisoes(void) {
+        
+        system("clear");
+
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ###############  MENU PREVISÕES ###############          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           1. Cadastrar nova previsão                            ***\n");
+	printf("***           2. Atualizar                                          ***\n");
+	printf("***           3. Excluir                                             ***\n");
+	printf("***           4. Consultar                                          ***\n");
+	printf("***           0. Voltar ao Menu Principal                           ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           Escolha a opção desejada:                             ***\n");
+	printf("***                                                                 ***\n");
+	printf("***********************************************************************\n");
+	printf(" \n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	
+}
+
+void telaCadastroUsuario(void) {
+        
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ############  CADASTRAR USUÁRIOS   ############          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           1. Nome do usuário                                    ***\n");
+	printf("***           2. Data de nascimento                                 ***\n");
+	printf("***           3. Local de nascimento                                ***\n");
+	printf("***           4. Nome da Mãe do usuário                             ***\n");
+	printf("***           5. Parto gemelar?                                     ***\n");
+	printf("***           0. Voltar ao Menu Principal                           ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           Escolha a opção desejada:                             ***\n");
+	printf("***                                                                 ***\n");
+	printf("***********************************************************************\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+
