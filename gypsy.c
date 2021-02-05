@@ -8,23 +8,25 @@ Desenvolvido por @gersonsouza - verão/2021
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <time.h>
 
 
 void telaInicial(void);
-void menuPrincipal(void);
-void menuSigno(void);
-void menuUsuario(void);
-void menuPrevisoes(void);
+char menuPrincipal(void);
+char menuSigno(void);
+char menuUsuario(void);
+char menuPrevisoes(void);
 void telaCadastroUsuario(void);
 
 
 int main(void) {
+    char opcao;
+    
     telaInicial();
-    menuPrincipal();
-    menuSigno();
-    menuUsuario();
-    menuPrevisoes();
+    opcao = menuPrincipal();
+    opcao = menuSigno();
+    opcao = menuUsuario();
+    opcao = menuPrevisoes();
     telaCadastroUsuario();
     
     return 0;
@@ -33,6 +35,7 @@ int main(void) {
 
 
 void telaInicial(void) {
+          
      system("clear");	
      printf(" \n");
      printf(" \n");
@@ -80,7 +83,10 @@ void telaInicial(void) {
    
 }
 
-void menuPrincipal(void) {
+char menuPrincipal(void) {
+        
+        char op;
+        
         system("clear");
 
 	printf(" \n");
@@ -104,15 +110,18 @@ void menuPrincipal(void) {
 	printf("***           0. Sair do sistema                                    ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
+	scanf("%c", &op);
+	getchar();
 	printf("***                                                                 ***\n");
-	printf("*****************************************************************************\n");
+	printf("***********************************************************************\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
-void menuSigno(void) {
-        
+char menuSigno(void) {
+        char op;
         system("clear");
 
 	printf(" \n");
@@ -121,8 +130,7 @@ void menuSigno(void) {
     	printf("***********************************************************************\n");
     	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
     	printf("***********************************************************************\n");
-    
-    	printf(" \n");
+     	printf(" \n");
     	printf(" \n");
 	printf("***********************************************************************\n");
 	printf("***        ###############################################          ***\n");
@@ -134,16 +142,20 @@ void menuSigno(void) {
 	printf("***           0. Voltar ao Menu Principal                           ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
+	scanf("%c", &op);
+	getchar();
 	printf("***                                                                 ***\n");
 	printf("***********************************************************************\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 	
 }
 
-void menuUsuario(void) {
-        
+char menuUsuario(void) {
+    	char op;
+    	    
         system("clear");
 
 	printf(" \n");
@@ -167,16 +179,20 @@ void menuUsuario(void) {
 	printf("***           0. Voltar ao Menu Principal                           ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
+	scanf("%c", &op);
+	getchar();
 	printf("***                                                                 ***\n");
 	printf("***********************************************************************\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 	
 }
 
-void menuPrevisoes(void) {
-        
+char menuPrevisoes(void) {
+    	char op;
+    	    
         system("clear");
 
 	printf(" \n");
@@ -200,16 +216,23 @@ void menuPrevisoes(void) {
 	printf("***           0. Voltar ao Menu Principal                           ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
+	scanf("%c", &op);
+	getchar();
 	printf("***                                                                 ***\n");
 	printf("***********************************************************************\n");
-	printf(" \n");
+	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 	
 }
 
 void telaCadastroUsuario(void) {
         
+	char nome[60];
+	char dataNasc[12];
+	char email[65];
+	
 	printf(" \n");
     	printf(" \n");
 
@@ -224,14 +247,15 @@ void telaCadastroUsuario(void) {
 	printf("***        ############  CADASTRAR USUÁRIOS   ############          ***\n");
 	printf("***        ###############################################          ***\n");
 	printf("***                                                                 ***\n");
-	printf("***           1. Nome do usuário                                    ***\n");
-	printf("***           2. Data de nascimento                                 ***\n");
-	printf("***           3. Local de nascimento                                ***\n");
-	printf("***           4. Nome da Mãe do usuário                             ***\n");
-	printf("***           5. Parto gemelar?                                     ***\n");
-	printf("***           0. Voltar ao Menu Principal                           ***\n");
-	printf("***                                                                 ***\n");
-	printf("***           Escolha a opção desejada:                             ***\n");
+	printf("           Nome completo: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	getchar();
+	printf("           Data de Nascimento (dd/mm/aaaa):  ");
+	scanf("%[0-9/]", dataNasc);
+	getchar();
+	printf("           E-mail: ");
+	scanf("%[a-z@.]", email);
+	getchar();
 	printf("***                                                                 ***\n");
 	printf("***********************************************************************\n");
 	printf("\n");
