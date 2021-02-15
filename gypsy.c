@@ -10,44 +10,115 @@ Desenvolvido por @gersonsouza - verão/2021
 #include <stdlib.h>
 #include <time.h>
 
-
-void telaInicial(void);
 char menuPrincipal(void);
 char menuSigno(void);
 char menuUsuario(void);
 char menuPrevisoes(void);
-void telaCadastroUsuario(void);
+void telaSobre(void);
+
+void telaConsultaSigno(void);
+void telaConsultaAscendente(void);
+
+void telaCadastraUsuario(void);
+void telaAtualizaUsuario(void);
+void telaExcluiUsuario(void);
+void telaConsultaUsuario(void);
+
+void telaCadastraPrevisao(void);
+void telaAtualizaPrevisao(void);
+void telaExcluiPrevisao(void);
+void telaConsultaPrevisao(void);
+
 
 
 int main(void) {
-    char opcao;
-    
-    telaInicial();
-    opcao = menuPrincipal();
-    opcao = menuSigno();
-    opcao = menuUsuario();
-    opcao = menuPrevisoes();
-    telaCadastroUsuario();
-    
-    return 0;
+
+  	char op, sop;
+	do {
+	  	op = menuPrincipal();
+		switch (op) {
+		  	case '1': menuSigno();
+		  		/*sop = menuSigno();
+				do {	
+					switch (sop) {
+					      case '1': telaConsultaSigno();
+					      			break;
+					      case '2': telaConsultaAscendente();
+					      			break;
+					      default: menuPrincipal();
+					      			break;
+					} 
+				} while (sop!='0');
+				*/		
+			case '2': menuUsuario();
+				/*sop = menuUsuario();
+				do {
+					switch (sop) {
+					     case '1':	telaCadastraUsuario();
+					  	                    break;
+					     case '2': telaAtualizaUsuario();
+						                    break;
+					     case '3': telaExcluiUsuario();
+        					                    break;
+					     case '4': telaConsultaUsuario();
+								     break;
+				             default:	menuPrincipal();
+						                    break;
+					}
+				} while (sop!='0');
+				*/	
+			case '3': menuPrevisoes();
+				/*sop = menuPrevisoes();
+				do {
+				       switch (sop) {
+				            case '1':	telaCadastraPrevisao();
+						                    break;
+				            case '2':	telaAtualizaPrevisao();
+						                    break;
+				            case '3':	telaExcluiPrevisao();
+						                    break;
+				            case '4':  telaConsultaPrevisao();
+						                    break;
+				            default:	menuPrincipal();
+				                                   break;
+					}
+				} while (sop!='0');
+				*/
+			case '4': telaSobre();
+					break;
+		}
+	
+	} while (op !='0');
+		printf("Saindo do Sistema");
+				
+ 	return 0;
 
 }
 
 
-void telaInicial(void) {
+void telaSobre(void) {
           
      system("clear");	
      printf(" \n");
      printf(" \n");
 
-     printf("***********************************************************************\n");
-     printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
-     printf("***********************************************************************\n");
+     printf("***************************************************************************\n");
+     printf("********** = = = = = Sistema de Gestão de Sortilégios = = = = = ***********\n");
+     printf("***************************************************************************\n");
     
      printf(" \n");
      printf(" \n");
     
-     printf("Apesar de não possuir fundamentação científica comprovada, a Astrologia continua a atrair a atenção de milhares de pessoas ao redor do mundo. Não é raro encontrar pessoas dos mais variados níveis culturais que incluem, como parte dos seus hábitos cotidianos, a consulta a um ou mais  mecanismos de adivinhação, mesmo que o façam apenas por diversão. Jornais, revistas e sites na internet continuam a publicar diariamente horóscopos e demais adivinhações baseadas na Astrologia. O presente projeto tem como objetivo desenvolver um programa de computador que simule a realização de previsões astrológicas, baseadas em dados reais do usuário, que serão efetuadas uma espécie de Cigana Virtual. \n");
+     printf("Apesar de não possuir fundamentação  científica  comprovada, a Astrologia   \n");
+     printf("continua a atrair a atenção de milhares de pessoas ao redor do mundo. Não   \n");
+     printf(" é raro encontrar pessoas dos mais variados níveis culturais que incluem,   \n");
+     printf("como parte dos seus hábitos cotidianos, a consulta a um ou mais mecanismos  \n");
+     printf("de adivinhação, mesmo que o façam apenas por diversão. Jornais, revistas e  \n");
+     printf("sites na internet continuam a publicar diariamente horóscopos e demais adi- \n");
+     printf("vinhações baseadas na Astrologia. O presente  projeto  tem como  objetivo   \n");
+     printf("desenvolver um programa de computador que simule a realização de previsões  \n");
+     printf("astrológicas, baseadas em dados reais do usuário, que serão  efetuadas uma  \n");
+     printf("espécie de Cigana Virtual. \n");
     
      printf(" \n");
      printf(" \n");
@@ -103,9 +174,9 @@ char menuPrincipal(void) {
 	printf("***        ###############  MENU PRINCIPAL ###############          ***\n");
 	printf("***        ###############################################          ***\n");
 	printf("***                                                                 ***\n");
-	printf("***           1. Signos                                             ***\n");
-	printf("***           2. Usuários                                           ***\n");
-	printf("***           3. Previsões                                          ***\n");
+	printf("***           1. Menu Signos                                        ***\n");
+	printf("***           2. Menu Usuários                                      ***\n");
+	printf("***           3. Menu Previsões                                     ***\n");
 	printf("***           4. Sobre a Cigana-Virtual                             ***\n");
 	printf("***           0. Sair do sistema                                    ***\n");
 	printf("***                                                                 ***\n");
@@ -117,6 +188,7 @@ char menuPrincipal(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	
 	return op;
 }
 
@@ -137,9 +209,9 @@ char menuSigno(void) {
 	printf("***        ################  MENU SIGNOS  ################          ***\n");
 	printf("***        ###############################################          ***\n");
 	printf("***                                                                 ***\n");
-	printf("***           1. Pesquisar os signos                                ***\n");
-	printf("***           2. Pesquisar os ascendentes                           ***\n");
-	printf("***           0. Voltar ao Menu Principal                           ***\n");
+	printf("***           1. Consultar os Signos                                ***\n");
+	printf("***           2. Consultar os Ascendentes                           ***\n");
+	printf("***           3. Voltar ao Menu Principal                           ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
 	scanf("%c", &op);
@@ -149,6 +221,7 @@ char menuSigno(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	
 	return op;
 	
 }
@@ -175,8 +248,8 @@ char menuUsuario(void) {
 	printf("***           1. Cadastrar novo usuário                             ***\n");
 	printf("***           2. Atualizar                                          ***\n");
 	printf("***           3. Excluir                                            ***\n");
-	printf("***           4. Pesquisar                                          ***\n");
-	printf("***           0. Voltar ao Menu Principal                           ***\n");
+	printf("***           4. Consultar                                          ***\n");
+	printf("***           5. Voltar ao Menu Principal                           ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
 	scanf("%c", &op);
@@ -186,6 +259,7 @@ char menuUsuario(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	
 	return op;
 	
 }
@@ -211,9 +285,9 @@ char menuPrevisoes(void) {
 	printf("***                                                                 ***\n");
 	printf("***           1. Cadastrar nova previsão                            ***\n");
 	printf("***           2. Atualizar                                          ***\n");
-	printf("***           3. Excluir                                             ***\n");
+	printf("***           3. Excluir                                            ***\n");
 	printf("***           4. Consultar                                          ***\n");
-	printf("***           0. Voltar ao Menu Principal                           ***\n");
+	printf("***           5. Voltar ao Menu Principal                           ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
 	scanf("%c", &op);
@@ -223,11 +297,22 @@ char menuPrevisoes(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	
 	return op;
 	
 }
 
-void telaCadastroUsuario(void) {
+void telaConsultaSigno(void){
+	printf("página em desenvolvimento: 'telaConsultaSigno' - opção 1");
+}
+
+void telaConsultaAscendente(void){
+
+	printf("página em desenvolvimento: 'telaConsultaAscendente' - opção 2");
+}
+
+
+void telaCadastraUsuario(void) {
         
 	char nome[60];
 	char dataNasc[12];
@@ -263,5 +348,70 @@ void telaCadastroUsuario(void) {
 	getchar();
 }
 
+void telaAtualizaUsuario(void){
+	printf("página em desenvolvimento: 'telaAtualizaUsuario' - opção 2");
+}
+
+void telaExcluiUsuario(void){
+	printf("página em desenvolvimento: 'telaExcluiUsuario' - opção 3");
+}
+
+void telaConsultaUsuario(void){
+	printf("página em desenvolvimento: 'telaConsultaUsuario' - opção 4");
+}
+
+
+void telaCadastraPrevisao(void) {
+
+	char signo[20];
+	char dataInicial[6];
+	char dataFinal[6];
+	char previsao[501];
+	
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ############  CADASTRAR PREVISÃO   ############          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("           DataInicial do Signo (dd/mm):  ");
+	scanf("%[0-9/]", dataInicial);
+	getchar();
+	printf("           DataFinal do Signo (dd/mm):  ");
+	scanf("%[0-9/]", dataFinal);
+	getchar();
+	printf("           Signo: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", signo);
+	getchar();
+	printf("           Previsão: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", previsao);
+	getchar();
+	printf("***                                                                 ***\n");
+	printf("***********************************************************************\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+
+void telaAtualizaPrevisao(void){
+	printf("página em desenvolvimento: 'telaAtualizaPrevisão' - opção 2");
+}
+
+void telaExcluiPrevisao(void){
+	printf("página em desenvolvimento: 'telaExcluiPrevisão' - opção 3");
+}
+ 
+void telaConsultaPrevisao(void){
+	printf("página em desenvolvimento: 'telaConsultaPrevisão' - opção 4");
+}
 
 
