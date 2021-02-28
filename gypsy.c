@@ -33,63 +33,63 @@ void telaConsultaPrevisao(void);
 
 int main(void) {
 
-  	char op, sop;
+  	char opcao, sop;
 	do {
-	  	op = menuPrincipal();
-		switch (op) {
-		  	case '1': menuSigno();
-		  		/*sop = menuSigno();
-				do {	
+	  	opcao = menuPrincipal();
+		switch (opcao) {
+		  	case '1': do {
+					sop = menuSigno(); 
 					switch (sop) {
-					      case '1': telaConsultaSigno();
-					      			break;
-					      case '2': telaConsultaAscendente();
-					      			break;
-					      default: menuPrincipal();
-					      			break;
-					} 
-				} while (sop!='0');
-				*/		
-			case '2': menuUsuario();
-				/*sop = menuUsuario();
-				do {
+						case '1': telaConsultaSigno();
+			     						break;
+						case '2': telaConsultaAscendente();
+						      			break;
+						case '3': menuPrincipal();
+									break;
+					}  
+				} while (sop != '3');
+		  	
+			case '2': do {
+					sop = menuUsuario();		
 					switch (sop) {
-					     case '1':	telaCadastraUsuario();
-					  	                    break;
-					     case '2': telaAtualizaUsuario();
-						                    break;
-					     case '3': telaExcluiUsuario();
-        					                    break;
-					     case '4': telaConsultaUsuario();
-								     break;
-				             default:	menuPrincipal();
-						                    break;
+		     				case '1': telaCadastraUsuario();
+		  	               	     			break;
+						case '2': telaAtualizaUsuario();
+			        					break;
+						case '3': telaExcluiUsuario();
+       								break;
+						case '4': telaConsultaUsuario();
+									break;
+						case '5': menuPrincipal();
+									break;
 					}
-				} while (sop!='0');
-				*/	
-			case '3': menuPrevisoes();
-				/*sop = menuPrevisoes();
-				do {
-				       switch (sop) {
-				            case '1':	telaCadastraPrevisao();
-						                    break;
-				            case '2':	telaAtualizaPrevisao();
-						                    break;
-				            case '3':	telaExcluiPrevisao();
-						                    break;
-				            case '4':  telaConsultaPrevisao();
-						                    break;
-				            default:	menuPrincipal();
-				                                   break;
+				} while (sop != '5');
+				
+			case '3': do {
+					sop = menuPrevisoes();
+					switch (sop) {
+						case '1': telaCadastraPrevisao();
+									 break;
+						case '2': telaAtualizaPrevisao();
+							                break;
+						case '3': telaExcluiPrevisao();
+									 break;
+						case '4': telaConsultaPrevisao();
+									 break;
+						case '5': menuPrincipal();
+									 break;
 					}
-				} while (sop!='0');
-				*/
+				} while (sop != '5');
+				
 			case '4': telaSobre();
 					break;
+			
+			case '5': printf("Saindo do Sistema... \n");
+							break;
 		}
 	
-	} while (op !='0');
-		printf("Saindo do Sistema");
+	} while (opcao != '5');
+		
 				
  	return 0;
 
@@ -154,6 +154,14 @@ void telaSobre(void) {
    
 }
 
+void delay(int segundos) {
+  int tempo = 300000 * segundos;
+  clock_t inicio = clock();
+  while (clock() < inicio + tempo) {
+    // não faz nada, apenas gasta tempo
+  }
+}
+
 char menuPrincipal(void) {
         
         char op;
@@ -178,7 +186,7 @@ char menuPrincipal(void) {
 	printf("***           2. Menu Usuários                                      ***\n");
 	printf("***           3. Menu Previsões                                     ***\n");
 	printf("***           4. Sobre a Cigana-Virtual                             ***\n");
-	printf("***           0. Sair do sistema                                    ***\n");
+	printf("***           5. Sair do sistema                                    ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
 	scanf("%c", &op);
@@ -191,6 +199,7 @@ char menuPrincipal(void) {
 	
 	return op;
 }
+
 
 char menuSigno(void) {
         char op;
@@ -226,6 +235,20 @@ char menuSigno(void) {
 	
 }
 
+void telaConsultaSigno(void){
+	char diaNasc[3];
+	char mesNasc[3];
+
+	
+	printf("página em desenvolvimento: 'telaConsultaSigno' - opção 1");
+}
+
+void telaConsultaAscendente(void){
+
+	printf("página em desenvolvimento: 'telaConsultaAscendente' - opção 2");
+}
+
+	
 char menuUsuario(void) {
     	char op;
     	    
@@ -264,9 +287,62 @@ char menuUsuario(void) {
 	
 }
 
+void telaCadastraUsuario(void) {
+        
+	char nome[60];
+	char dataNasc[12];
+	char sexo[2];
+	char email[65];
+	
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ############  CADASTRAR USUÁRIOS   ############          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("           Nome completo: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
+	getchar();
+	printf("           Data de Nascimento (dd/mm/aaaa):  ");
+	scanf("%[0-9/]", dataNasc);
+	getchar();
+	printf("           Sexo ('F'-Feminino ou 'M'-Masculino):  ");
+	scanf("%[A-Z a-z]", sexo);
+	getchar();
+	printf("           E-mail: ");
+	scanf("%[a-z@.]", email);
+	getchar();
+	printf("***                                                                 ***\n");
+	printf("***********************************************************************\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void telaAtualizaUsuario(void){
+	printf("página em desenvolvimento: 'telaAtualizaUsuario' - opção 2");
+}
+
+void telaExcluiUsuario(void){
+	printf("página em desenvolvimento: 'telaExcluiUsuario' - opção 3");
+}
+
+void telaConsultaUsuario(void){
+	printf("página em desenvolvimento: 'telaConsultaUsuario' - opção 4");
+}
+
+
 char menuPrevisoes(void) {
     	char op;
-    	    
+	    	    
         system("clear");
 
 	printf(" \n");
@@ -300,64 +376,6 @@ char menuPrevisoes(void) {
 	
 	return op;
 	
-}
-
-void telaConsultaSigno(void){
-	printf("página em desenvolvimento: 'telaConsultaSigno' - opção 1");
-}
-
-void telaConsultaAscendente(void){
-
-	printf("página em desenvolvimento: 'telaConsultaAscendente' - opção 2");
-}
-
-
-void telaCadastraUsuario(void) {
-        
-	char nome[60];
-	char dataNasc[12];
-	char email[65];
-	
-	printf(" \n");
-    	printf(" \n");
-
-    	printf("***********************************************************************\n");
-    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
-    	printf("***********************************************************************\n");
-    
-    	printf(" \n");
-    	printf(" \n");
-	printf("***********************************************************************\n");
-	printf("***        ###############################################          ***\n");
-	printf("***        ############  CADASTRAR USUÁRIOS   ############          ***\n");
-	printf("***        ###############################################          ***\n");
-	printf("***                                                                 ***\n");
-	printf("           Nome completo: ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
-	getchar();
-	printf("           Data de Nascimento (dd/mm/aaaa):  ");
-	scanf("%[0-9/]", dataNasc);
-	getchar();
-	printf("           E-mail: ");
-	scanf("%[a-z@.]", email);
-	getchar();
-	printf("***                                                                 ***\n");
-	printf("***********************************************************************\n");
-	printf("\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
-
-void telaAtualizaUsuario(void){
-	printf("página em desenvolvimento: 'telaAtualizaUsuario' - opção 2");
-}
-
-void telaExcluiUsuario(void){
-	printf("página em desenvolvimento: 'telaExcluiUsuario' - opção 3");
-}
-
-void telaConsultaUsuario(void){
-	printf("página em desenvolvimento: 'telaConsultaUsuario' - opção 4");
 }
 
 
