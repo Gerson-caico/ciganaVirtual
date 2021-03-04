@@ -9,6 +9,8 @@ Desenvolvido por @gersonsouza - verão/2021
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include "funcValidadores.h"
+
 
 char menuPrincipal(void);
 char menuSigno(void);
@@ -236,11 +238,26 @@ char menuSigno(void) {
 }
 
 void telaConsultaSigno(void){
-	char diaNasc[3];
-	char mesNasc[3];
+	int diaNasc;
+	int mesNasc;
+	int anoNasc;
+	int v;
+	do {
+		printf("   	   Dia de Nascimento (dd): ");
+		scanf(" %d", &diaNasc);
+		printf("   	   Mês de Nascimento (mm): ");
+		scanf(" %d", &mesNasc);
+		printf("   	   Ano de Nascimento (aa): ");
+		scanf(" %d", &anoNasc);
+		v = validaData(diaNasc, mesNasc, anoNasc);
+		if (!v) 
+		{ 
+			printf("  	   Data inválida...por favor, tente novamente! \n");
+		}
+	} while (!v);
 
 	
-	printf("página em desenvolvimento: 'telaConsultaSigno' - opção 1");
+	printf("página em desenvolvimento...");
 }
 
 void telaConsultaAscendente(void){
@@ -290,9 +307,12 @@ char menuUsuario(void) {
 void telaCadastraUsuario(void) {
         
 	char nome[60];
-	char dataNasc[12];
+	int diaNasc;
+	int mesNasc;
+	int anoNasc;
 	char sexo[2];
 	char email[65];
+	int v;
 	
 	printf(" \n");
     	printf(" \n");
@@ -311,15 +331,24 @@ void telaCadastraUsuario(void) {
 	printf("           Nome completo: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome);
 	getchar();
-	printf("           Data de Nascimento (dd/mm/aaaa):  ");
-	scanf("%[0-9/]", dataNasc);
-	getchar();
 	printf("           Sexo ('F'-Feminino ou 'M'-Masculino):  ");
 	scanf("%[A-Z a-z]", sexo);
 	getchar();
 	printf("           E-mail: ");
 	scanf("%[a-z@.]", email);
 	getchar();
+	do {
+		printf("   	   Dia de Nascimento (dd): ");
+		scanf(" %d", &diaNasc);
+		printf("   	   Mês de Nascimento (mm): ");
+		scanf(" %d", &mesNasc);
+		printf("   	   Ano de Nascimento (aa): ");
+		scanf(" %d", &anoNasc);
+		v = validaData(diaNasc, mesNasc, anoNasc);
+		if (!v) { 
+			printf("  	   Data inválida...por favor, tente novamente! \n");
+		}
+	} while (!v);
 	printf("***                                                                 ***\n");
 	printf("***********************************************************************\n");
 	printf("\n");
