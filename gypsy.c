@@ -16,7 +16,7 @@ char menuPrincipal(void);
 char menuSigno(void);
 char menuUsuario(void);
 char menuPrevisoes(void);
-void telaSobre(void);
+char relatorios(void);
 
 void telaConsultaSigno(void);
 void telaConsultaAscendente(void);
@@ -30,6 +30,9 @@ void telaCadastraPrevisao(void);
 void telaAtualizaPrevisao(void);
 void telaExcluiPrevisao(void);
 void telaConsultaPrevisao(void);
+
+void relatSignosDoZodiaco(void);
+void relatUsuariosCadastrados(void);
 
 
 
@@ -83,78 +86,29 @@ int main(void) {
 					}
 				} while (sop != '5');
 				
-			case '4': telaSobre();
-					break;
-			
+			case '4': do {
+					sop = relatorios();
+					switch (sop) {
+						case '1': relatSignosDoZodiaco();
+									 break;
+						case '2': relatUsuariosCadastrados();
+							                break;
+						case '3': menuPrincipal();
+									 break;
+					}
+				} while (sop != '3');
+				
 			case '5': printf("Saindo do Sistema... \n");
 							break;
 		}
 	
 	} while (opcao != '5');
-		
 				
  	return 0;
-
 }
 
 
-void telaSobre(void) {
-          
-     system("clear");	
-     printf(" \n");
-     printf(" \n");
 
-     printf("***************************************************************************\n");
-     printf("********** = = = = = Sistema de Gestão de Sortilégios = = = = = ***********\n");
-     printf("***************************************************************************\n");
-    
-     printf(" \n");
-     printf(" \n");
-    
-     printf("Apesar de não possuir fundamentação  científica  comprovada, a Astrologia   \n");
-     printf("continua a atrair a atenção de milhares de pessoas ao redor do mundo. Não   \n");
-     printf(" é raro encontrar pessoas dos mais variados níveis culturais que incluem,   \n");
-     printf("como parte dos seus hábitos cotidianos, a consulta a um ou mais mecanismos  \n");
-     printf("de adivinhação, mesmo que o façam apenas por diversão. Jornais, revistas e  \n");
-     printf("sites na internet continuam a publicar diariamente horóscopos e demais adi- \n");
-     printf("vinhações baseadas na Astrologia. O presente  projeto  tem como  objetivo   \n");
-     printf("desenvolver um programa de computador que simule a realização de previsões  \n");
-     printf("astrológicas, baseadas em dados reais do usuário, que serão  efetuadas uma  \n");
-     printf("espécie de Cigana Virtual. \n");
-    
-     printf(" \n");
-     printf(" \n");
-
-     printf("Estes são os 12 signos do Zodíaco:\n");
-     printf(" \n");
-     printf("- ÁRIES: de 21/Março a 19/Abril\n");
-     printf(" \n");
-     printf("- TOURO: de 20/Abril a 20/Maio\n");
-     printf(" \n");
-     printf("- GÊMEOS: de 21/Maio a 21/Junho\n");
-     printf(" \n");
-     printf("- CÂNCER: de 22/Junho a 22/Julho\n");
-     printf(" \n");
-     printf("- LEÃO: de 23/Julho a 22/Agosto\n");
-     printf(" \n");
-     printf("- VIRGEM: de 23/Agosto a 22/Setembro\n");
-     printf(" \n");
-     printf("- LIBRA: de 23/Setembro a 22/Outubro\n");
-     printf(" \n");
-     printf("- ESCORPIÃO: de 23/Outubro a 21/Novembro\n");
-     printf(" \n");
-     printf("- SAGITÁRIO: de 22/Novembro a 21/Dezembro\n");
-     printf(" \n");
-     printf("- CAPRICÓRNIO: de 22/Dezembro a 19/Janeiro\n");
-     printf(" \n");
-     printf("- AQUÁRIO: de 20/Janeiro a 18/Fevereiro\n");
-     printf(" \n");
-     printf("- PEIXES: de 19/Fevereiro a 20/Março\n");
-     printf(" \n");
-     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-     getchar();
-   
-}
 
 void delay(int segundos) {
   int tempo = 300000 * segundos;
@@ -187,7 +141,7 @@ char menuPrincipal(void) {
 	printf("***           1. Menu Signos                                        ***\n");
 	printf("***           2. Menu Usuários                                      ***\n");
 	printf("***           3. Menu Previsões                                     ***\n");
-	printf("***           4. Sobre a Cigana-Virtual                             ***\n");
+	printf("***           4. Relatórios                                         ***\n");
 	printf("***           5. Sair do sistema                                    ***\n");
 	printf("***                                                                 ***\n");
 	printf("***           Escolha a opção desejada:                             ***\n");
@@ -461,4 +415,133 @@ void telaConsultaPrevisao(void){
 	printf("página em desenvolvimento: 'telaConsultaPrevisão' - opção 4");
 }
 
+char relatorios(void) {
+        
+        char op;
+        
+        system("clear");
+
+	printf(" \n");
+    	printf(" \n");
+
+    	printf("***********************************************************************\n");
+    	printf("******** = = = = = Sistema de Gestão de Sortilégios = = = = = *********\n");
+    	printf("***********************************************************************\n");
+    
+    	printf(" \n");
+    	printf(" \n");
+	printf("***********************************************************************\n");
+	printf("***        ###############################################          ***\n");
+	printf("***        ################## RELATÓRIOS #################          ***\n");
+	printf("***        ###############################################          ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           1. Signos do Zodíaco                                  ***\n");
+	printf("***           2. Usuários Cadastrados                               ***\n");
+	printf("***           3. Voltar para o Menu Principal                       ***\n");
+	printf("***                                                                 ***\n");
+	printf("***           Escolha a opção desejada:                             ***\n");
+	scanf("%c", &op);
+	getchar();
+	printf("***                                                                 ***\n");
+	printf("***********************************************************************\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	
+	return op;
+}
+
+void relatSignosDoZodiaco(void) {
+          
+     system("clear");	
+     printf(" \n");
+     printf(" \n");
+
+     printf("***************************************************************************\n");
+     printf("********** = = = = = Sistema de Gestão de Sortilégios = = = = = ***********\n");
+     printf("***************************************************************************\n");
+    
+     printf(" \n");
+     printf(" \n");
+    
+     printf("Apesar de não possuir fundamentação  científica  comprovada, a Astrologia   \n");
+     printf("continua a atrair a atenção de milhares de pessoas ao redor do mundo. Não   \n");
+     printf(" é raro encontrar pessoas dos mais variados níveis culturais que incluem,   \n");
+     printf("como parte dos seus hábitos cotidianos, a consulta a um ou mais mecanismos  \n");
+     printf("de adivinhação, mesmo que o façam apenas por diversão. Jornais, revistas e  \n");
+     printf("sites na internet continuam a publicar diariamente horóscopos e demais adi- \n");
+     printf("vinhações baseadas na Astrologia. O presente  projeto  tem como  objetivo   \n");
+     printf("desenvolver um programa de computador que simule a realização de previsões  \n");
+     printf("astrológicas, baseadas em dados reais do usuário, que serão  efetuadas uma  \n");
+     printf("espécie de Cigana Virtual. \n");
+    
+     printf(" \n");
+     printf(" \n");
+
+     printf("RELATÓRIO - SIGNOS DO ZODÍACO:\n");
+     printf(" \n");
+     printf("- ÁRIES: de 21/Março a 19/Abril\n");
+     printf(" \n");
+     printf("- TOURO: de 20/Abril a 20/Maio\n");
+     printf(" \n");
+     printf("- GÊMEOS: de 21/Maio a 21/Junho\n");
+     printf(" \n");
+     printf("- CÂNCER: de 22/Junho a 22/Julho\n");
+     printf(" \n");
+     printf("- LEÃO: de 23/Julho a 22/Agosto\n");
+     printf(" \n");
+     printf("- VIRGEM: de 23/Agosto a 22/Setembro\n");
+     printf(" \n");
+     printf("- LIBRA: de 23/Setembro a 22/Outubro\n");
+     printf(" \n");
+     printf("- ESCORPIÃO: de 23/Outubro a 21/Novembro\n");
+     printf(" \n");
+     printf("- SAGITÁRIO: de 22/Novembro a 21/Dezembro\n");
+     printf(" \n");
+     printf("- CAPRICÓRNIO: de 22/Dezembro a 19/Janeiro\n");
+     printf(" \n");
+     printf("- AQUÁRIO: de 20/Janeiro a 18/Fevereiro\n");
+     printf(" \n");
+     printf("- PEIXES: de 19/Fevereiro a 20/Março\n");
+     printf(" \n");
+     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+     getchar();
+   
+}
+
+void relatUsuariosCadastrados(void) {
+          
+     system("clear");	
+     printf(" \n");
+     printf(" \n");
+
+     printf("***************************************************************************\n");
+     printf("********** = = = = = Sistema de Gestão de Sortilégios = = = = = ***********\n");
+     printf("***************************************************************************\n");
+    
+     printf(" \n");
+     printf(" \n");
+    
+     printf("Apesar de não possuir fundamentação  científica  comprovada, a Astrologia   \n");
+     printf("continua a atrair a atenção de milhares de pessoas ao redor do mundo. Não   \n");
+     printf(" é raro encontrar pessoas dos mais variados níveis culturais que incluem,   \n");
+     printf("como parte dos seus hábitos cotidianos, a consulta a um ou mais mecanismos  \n");
+     printf("de adivinhação, mesmo que o façam apenas por diversão. Jornais, revistas e  \n");
+     printf("sites na internet continuam a publicar diariamente horóscopos e demais adi- \n");
+     printf("vinhações baseadas na Astrologia. O presente  projeto  tem como  objetivo   \n");
+     printf("desenvolver um programa de computador que simule a realização de previsões  \n");
+     printf("astrológicas, baseadas em dados reais do usuário, que serão  efetuadas uma  \n");
+     printf("espécie de Cigana Virtual. \n");
+    
+     printf(" \n");
+     printf(" \n");
+
+     printf("RELATÓRIO - USUÁRIOS CADASTRADOS:\n");
+     printf(" \n");
+     printf("página em desenvolvimento \n");
+     printf(" \n");
+     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+     getchar();
+   
+}
 
